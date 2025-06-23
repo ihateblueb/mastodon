@@ -38,7 +38,7 @@ $error-value-color: $error-red !default;
 $ui-base-color: $classic-base-color !default; // Darkest
 $ui-base-lighter-color: lighten(
   $ui-base-color,
-  16%
+  32%
 ) !default; // Lighter darkest
 $ui-primary-color: $classic-primary-color !default; // Lighter
 $ui-secondary-color: $classic-secondary-color !default; // Lightest
