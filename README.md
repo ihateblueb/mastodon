@@ -1,3 +1,10 @@
+## remlit.site Chuckya
+
+Fork of Chuckya with minor tweaks.
+
+- Switch to Inter font
+- Adjust color scheme of modern theme to be more purple
+
 # <img src="https://github.com/TheEssem/mastodon/raw/main/public/chuckya.svg" width="128"> Chuckya
 
 Chuckya is a close-to-upstream soft fork of Mastodon Glitch Edition (more commonly known as glitch-soc) that aims to introduce more experimental features/fixes with the goal of making the overall experience more enjoyable. Although it's mainly developed for and used on the [wetdry.world](https://wetdry.world) instance, it can be deployed by any server admin as a drop-in, backwards-compatible replacement for Mastodon.

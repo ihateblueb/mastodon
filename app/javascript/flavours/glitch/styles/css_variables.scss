@@ -34,6 +34,9 @@
   --input-placeholder-color: #{$dark-text-color};
   --input-background-color: var(--surface-variant-background-color);
   --on-input-color: #{$secondary-text-color};
+  --hover-color: rgba(131, 107, 172, 4%) !important;
+  --elevated-color: rgba(121, 108, 149, 10%) !important;
+  --elevated-tint: rgba(216, 200, 240, 4%) !important;
 }
 
 body {

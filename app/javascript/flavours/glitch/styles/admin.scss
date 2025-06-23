@@ -1218,7 +1218,7 @@ a.name-tag,
   display: block;
   text-decoration: none;
   background: var(--background-color);
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid var(--background-border-color);
   padding: 0;
   position: relative;
@@ -1272,7 +1272,7 @@ a.name-tag,
 
     svg {
       display: block;
-      margin: 0;
+      margin: -2px;
     }
 
     path:first-child {
