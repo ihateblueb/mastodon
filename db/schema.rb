@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_17_003848) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -474,6 +474,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
     t.index ["fasp_provider_id"], name: "index_fasp_debug_callbacks_on_fasp_provider_id"
   end
 
+  create_table "fasp_follow_recommendations", force: :cascade do |t|
+    t.bigint "requesting_account_id", null: false
+    t.bigint "recommended_account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommended_account_id"], name: "index_fasp_follow_recommendations_on_recommended_account_id"
+    t.index ["requesting_account_id"], name: "index_fasp_follow_recommendations_on_requesting_account_id"
+  end
+
   create_table "fasp_providers", force: :cascade do |t|
     t.boolean "confirmed", default: false, null: false
     t.string "name", null: false
@@ -587,6 +596,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
     t.bigint "user_id"
     t.index ["uid", "provider"], name: "index_identities_on_uid_and_provider", unique: true
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "instance_moderation_notes", force: :cascade do |t|
+    t.string "domain", null: false
+    t.bigint "account_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_instance_moderation_notes_on_domain"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -1245,6 +1263,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "username_blocks", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "normalized_username", null: false
+    t.boolean "exact", default: false, null: false
+    t.boolean "allow_with_approval", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "lower((username)::text)", name: "index_username_blocks_on_username_lower_btree", unique: true
+    t.index ["normalized_username"], name: "index_username_blocks_on_normalized_username"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.datetime "created_at", precision: nil, null: false
@@ -1383,6 +1412,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
   add_foreign_key "email_domain_blocks", "email_domain_blocks", column: "parent_id", on_delete: :cascade
   add_foreign_key "fasp_backfill_requests", "fasp_providers"
   add_foreign_key "fasp_debug_callbacks", "fasp_providers"
+  add_foreign_key "fasp_follow_recommendations", "accounts", column: "recommended_account_id"
+  add_foreign_key "fasp_follow_recommendations", "accounts", column: "requesting_account_id"
   add_foreign_key "fasp_subscriptions", "fasp_providers"
   add_foreign_key "favourites", "accounts", name: "fk_5eb6c2b873", on_delete: :cascade
   add_foreign_key "favourites", "statuses", name: "fk_b0e856845e", on_delete: :cascade
@@ -1397,6 +1428,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_110215) do
   add_foreign_key "follows", "accounts", name: "fk_32ed1b5560", on_delete: :cascade
   add_foreign_key "generated_annual_reports", "accounts"
   add_foreign_key "identities", "users", name: "fk_bea040f377", on_delete: :cascade
+  add_foreign_key "instance_moderation_notes", "accounts", on_delete: :cascade
   add_foreign_key "invites", "users", on_delete: :cascade
   add_foreign_key "list_accounts", "accounts", on_delete: :cascade
   add_foreign_key "list_accounts", "follow_requests", on_delete: :cascade

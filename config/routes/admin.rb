@@ -94,6 +94,8 @@ namespace :admin do
       post :restart_delivery
       post :stop_delivery
     end
+
+    resources :moderation_notes, controller: 'instances/moderation_notes', only: [:create, :destroy]
   end
 
   resources :rules, only: [:index, :new, :create, :edit, :update, :destroy] do
@@ -231,4 +233,10 @@ namespace :admin do
   end
 
   resources :software_updates, only: [:index]
+
+  resources :username_blocks, except: [:show, :destroy] do
+    collection do
+      post :batch
+    end
+  end
 end

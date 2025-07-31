@@ -611,6 +611,13 @@ ga:
         all: Uile
         limited: Teoranta
         title: Measarthacht
+      moderation_notes:
+        create: Cuir Nóta Modhnóireachta leis
+        created_msg: Cruthaíodh nóta modhnóireachta an cháis go rathúil!
+        description_html: Féach ar nótaí agus fág iad do mhodhnóirí eile agus do do dhuine féin sa todhchaí
+        destroyed_msg: Scriosadh nóta modhnóireachta an cháis go rathúil!
+        placeholder: Faisnéis faoin gcás seo, gníomhartha a rinneadh, nó aon rud eile a chabhróidh leat an cás seo a mhodhnú amach anseo.
+        title: Nótaí Modhnóireachta
       private_comment: Trácht príobháideach
       public_comment: Trácht poiblí
       purge: Glan
@@ -1213,9 +1220,9 @@ ga:
     confirmation_dialogs: Dialóga deimhnithe
     discovery: Fionnachtain
     localization:
-      body: Aistríonn oibrithe deonacha Mastodon.
+      body: Oibrithe deonacha a dhéanann aistriúchán Mastodon.
       guide_link: https://crowdin.com/project/mastodon
-      guide_link_text: Is féidir le gach duine rannchuidiú.
+      guide_link_text: Is féidir le gach duine cur leis.
     sensitive_content: Ábhar íogair
   application_mailer:
     notification_preferences: Athraigh roghanna ríomhphoist
@@ -1399,6 +1406,10 @@ ga:
     basic_information: Eolas bunúsach
     hint_html: "<strong>Saincheap a bhfeiceann daoine ar do phróifíl phoiblí agus in aice le do phostálacha.</strong> Is dóichí go leanfaidh daoine eile ar ais tú agus go n-idirghníomhóidh siad leat nuair a bhíonn próifíl líonta agus pictiúr próifíle agat."
     other: Eile
+  emoji_styles:
+    auto: Uath
+    native: Dúchasach
+    twemoji: Twemoji
   errors:
     '400': Bhí an t-iarratas a chuir tú isteach neamhbhailí nó míchumtha.
     '403': Níl cead agat an leathanach seo a fheiceáil.
@@ -1990,6 +2001,7 @@ ga:
     edited_at_html: "%{date} curtha in eagar"
     errors:
       in_reply_not_found: Is cosúil nach ann don phostáil a bhfuil tú ag iarraidh freagra a thabhairt air.
+      quoted_status_not_found: Is cosúil nach bhfuil an post atá tú ag iarraidh a lua ann.
     over_character_limit: teorainn carachtar %{max} sáraithe
     pin_errors:
       direct: Ní féidir postálacha nach bhfuil le feiceáil ach ag úsáideoirí luaite a phinnáil
